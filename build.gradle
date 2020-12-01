@@ -48,11 +48,10 @@ allprojects {
 // println tasks.hello.name
 // println tasks['hello'].name
 
+task taskY doLast {
+   println 'taskY'
+}
 task taskX doLast {
    println 'taskX'
 }
-task taskY(dependsOn: 'taskX') {
-    doLast {
-        println "taskY"
-    }
-}
+taskY.dependsOn taskX
