@@ -43,7 +43,16 @@ allprojects {
 //    println "tutorialspoint"
 // }
 
-task hello
+// task hello
 
-println tasks.hello.name
-println tasks['hello'].name
+// println tasks.hello.name
+// println tasks['hello'].name
+
+task taskX doLast {
+   println 'taskX'
+}
+task taskY(dependsOn: 'taskX') {
+    doLast {
+        println "taskY"
+    }
+}
