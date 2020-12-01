@@ -39,6 +39,11 @@ allprojects {
     }
 }
 
-tasks.create(name: 'hello') doLast {
-   println "tutorialspoint"
-}
+// tasks.create(name: 'hello') doLast {
+//    println "tutorialspoint"
+// }
+
+task hello
+
+println tasks.hello.name
+println tasks['hello'].name
