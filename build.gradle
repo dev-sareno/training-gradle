@@ -1,0 +1,40 @@
+task upper doLast {
+   String expString = 'TUTORIALS point'
+   println "Original: " + expString
+   println "Upper case: " + expString.toUpperCase()
+}
+
+task count doLast {
+   4.times {
+      print "$it " 
+   }
+}
+
+task groovyJDK doLast {
+   String myName = "Marc";
+   myName.each() { 
+      println "${it}" 
+   };
+}
+
+task propAccess doLast {
+    // Using a setter method
+    project.buildDir = 'target'
+    getProject().setBuildDir('target')
+
+    // Using a getter method
+    println project.buildDir
+    println getProject().getBuildDir()
+}
+
+allprojects {
+    task nestedOne {
+        doLast {
+            println "Nested one! @doLast"
+        }
+
+        doFirst {
+            println "Nested one! @doFirst"
+        }
+    }
+}
