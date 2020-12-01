@@ -38,3 +38,7 @@ allprojects {
         }
     }
 }
+
+tasks.create(name: 'hello') doLast {
+   println "tutorialspoint"
+}
