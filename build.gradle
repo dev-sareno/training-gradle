@@ -94,3 +94,16 @@ eclipse.doFirst {
 }
 
 task usingEclipse
+
+apply plugin: GreetingPlugin
+
+class GreetingPlugin implements Plugin<Project> {
+   void apply(Project project) {
+      project.task('hello') doLast {  // gradle -q hello
+         println "Hello from the GreetingPlugin"
+      }
+   }
+}
+
+eclipse.dependsOn hello
+
