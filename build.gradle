@@ -48,10 +48,26 @@ allprojects {
 // println tasks.hello.name
 // println tasks['hello'].name
 
-task taskY doLast {
-   println 'taskY'
+task printAllTaskName doLast {
+    tasks.findAll {
+        task -> println task.name
+    }
 }
+
 task taskX doLast {
    println 'taskX'
 }
-taskY.dependsOn taskX
+taskX.dependsOn {
+   tasks.findAll { 
+      task -> task.name.startsWith('lib') 
+   }
+}
+task lib1 doLast {
+   println 'lib1'
+}
+task lib2 doLast {
+   println 'lib2'
+}
+task notALib doLast {
+   println 'notALib'
+}
