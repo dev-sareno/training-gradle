@@ -97,13 +97,21 @@ task usingEclipse
 
 apply plugin: GreetingPlugin
 
+greeting.message = 'Hi from Gradle'
+
 class GreetingPlugin implements Plugin<Project> {
    void apply(Project project) {
-      project.task('hello') doLast {  // gradle -q hello
-         println "Hello from the GreetingPlugin"
+      // Add the 'greeting' extension object
+      project.extensions.create("greeting", GreetingPluginExtension)
+		
+      // Add a task that uses the configuration
+      project.task('hello') doLast {
+         println project.greeting.message
       }
    }
 }
 
-eclipse.dependsOn hello
+class GreetingPluginExtension {
+   def String message = 'Hello from GreetingPlugin'
+}
 
