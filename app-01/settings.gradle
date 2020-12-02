@@ -8,5 +8,5 @@
  */
 
 rootProject.name = 'app-01'
-include('app')
-include('api')  // Include the api library
+include('app', 'api')
+

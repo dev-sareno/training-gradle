@@ -23,10 +23,11 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
+
+    implementation project(':api')
 }
 
 application {
     // Define the main class for the application.
     mainClass = 'se.netzon.app01.App'
-    applicationName = 'My App Name'
 }
